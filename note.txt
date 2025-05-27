@@ -1,0 +1,69 @@
+Intelligent Threat Detection: AI-Based Weapon Recognition with Automated AWS Security Notifications
+
+Step 1: Set up AWS Account and SNS
+
+Create an AWS account if you don't have one already
+Create an SNS Topic:
+
+Go to AWS Management Console → SNS → Topics → Create topic
+Choose "Standard" type
+Name it something like "WeaponDetectionAlerts"
+Keep other settings as default and click "Create topic"
+Note the Topic ARN (Amazon Resource Name)
+
+Create a subscription:
+
+Select your topic → Create subscription
+Choose "Email" or "SMS" as the protocol
+Enter your email address or phone number
+Click "Create subscription"
+Confirm the subscription via the email you receive
+
+Step 2: Set up AWS Credentials
+
+Create an IAM User with SNS permissions:
+
+Go to IAM → Users → Add user
+Give it a name like "weapon-detection-app"
+Select "Programmatic access"
+Attach the "AmazonSNSFullAccess" policy
+Complete the creation process and save the Access Key ID and Secret Access Key
+
+pip install awscli
+aws configure
+
+Enter your Access Key ID, Secret Access Key, and preferred region
+
+pip install boto3
+
+
+Name
+WeaponDetectionAlerts
+ARN
+arn:aws:sns:us-east-1:730335554661:WeaponDetectionAlerts
+
+AKIA2UC3EFRS6DWNA3GZ   -AK
+lG57tSEB4r5rr6y21cPA7wEKy2fOLRUNWeeArZIn    -SAK
+us-east-1
+
+
+
+# Run in live mode using default webcam
+python detectingcode.py --mode live
+
+# Run in live mode and record the output
+python detectingcode.py --mode live --record --output webcam_detection.avi
+
+# Specify a different webcam (if you have multiple cameras)
+python detectingcode.py --mode live --camera 1
+
+
+# Process a video file (default mode)
+python detectingcode.py --input C:\Users\DELL\Downloads\gun.mp4 --output C:\Users\DELL\Downloads\output_weapon_detection.avi
+
+# Or explicitly specify video mode
+python detectingcode.py --mode video --input C:/path/to/video.mp4 --output C:/path/to/output.avi
+
+
+
+
